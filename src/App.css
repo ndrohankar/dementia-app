@@ -1,0 +1,123 @@
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background-color: rgb(243, 244, 246);
+}
+
+.title {
+  display: inline-block;
+      font-size: 32px;
+      color: #fff;
+      background: #e7572a;
+      padding: 6px 20px 3px;
+      border-radius: 25px;
+      line-height: 1.2em;
+      font-weight: 500;
+      margin-top: 8px;
+      margin-bottom: 20px;
+      margin-left: 120px;
+      width:50%
+}
+
+body{
+    background:#23297a;
+}
+.button-container {
+ display: flex;
+     align-items: center;
+     justify-content: center;
+}
+.button-container-listening {
+ display: flex;
+     align-items: center;
+     gap: 32px;
+     justify-content: center;
+}
+
+textarea {
+            max-width: 600px;
+            width: 560px;
+            height: 130px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+.container-text {
+            position: relative;
+            display: inline-block;
+        }
+        .clear-btn {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+            background: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+.text-area:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.button-container {
+  margin-top: 10px;
+}
+
+.button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #38ac69;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #009b5d;
+}
+
+/* Avatar Styles */
+.avatar {
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  background-image: url('../public/avatar.png'); /* Default Avatar Image */
+  background-size: cover;
+  transition: transform 0.3s;
+}
+
+.recording-indicator {
+  color: red;
+  font-size: 20px;
+  margin-bottom: 20px;
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+  }
+.listening {
+  width: 50px;
+  height: 50px;
+  margin: 20px;
+  background-image: url('../public/listening.gif'); /* Default Avatar Image */
+  background-size: cover;
+  transition: transform 0.3s;
+}
+.avatar.greeting {
+  transform: scale(1.1);
+  background-image: url('../public/greeting-avatar.png'); /* Greeting Avatar Image */
+}
+
+.avatar.thinking {
+  transform: rotate(5deg);
+  background-image: url('../public/thinking-avatar.png'); /* Thinking Avatar Image */
+}
