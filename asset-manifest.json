@@ -1,19 +1,24 @@
 {
   "files": {
-    "main.css": "/dementia-app/static/css/main.e43dc78c.css",
-    "main.js": "/dementia-app/static/js/main.27dc0011.js",
+    "main.css": "/dementia-app/static/css/main.ea7bcad7.css",
+    "main.js": "/dementia-app/static/js/main.994bad9c.js",
     "static/js/453.ed3810f9.chunk.js": "/dementia-app/static/js/453.ed3810f9.chunk.js",
     "static/media/listening.gif": "/dementia-app/static/media/listening.627451a103da80724f9c.gif",
+    "static/media/background1.png": "/dementia-app/static/media/background1.85f3dbb8450d9f8a95c4.png",
     "static/media/test.gif": "/dementia-app/static/media/test.c133a8738f8877aadaa8.gif",
+    "static/media/containerimage.png": "/dementia-app/static/media/containerimage.79cc2b22603ab4a92f71.png",
+    "static/media/chatbot1.png": "/dementia-app/static/media/chatbot1.28acd27a2ef932bf6118.png",
+    "static/media/bot.png": "/dementia-app/static/media/bot.ccc70646ac8cb38efb8a.png",
+    "static/media/human.png": "/dementia-app/static/media/human.1c9e08fb7b39841dbde9.png",
     "static/media/avatar.png": "/dementia-app/static/media/avatar.6bf895ae62d510d16d04.png",
     "static/media/greeting-avatar.png": "/dementia-app/static/media/greeting-avatar.25f2a8e44f570f1d343f.png",
     "index.html": "/dementia-app/index.html",
-    "main.e43dc78c.css.map": "/dementia-app/static/css/main.e43dc78c.css.map",
-    "main.27dc0011.js.map": "/dementia-app/static/js/main.27dc0011.js.map",
+    "main.ea7bcad7.css.map": "/dementia-app/static/css/main.ea7bcad7.css.map",
+    "main.994bad9c.js.map": "/dementia-app/static/js/main.994bad9c.js.map",
     "453.ed3810f9.chunk.js.map": "/dementia-app/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e43dc78c.css",
-    "static/js/main.27dc0011.js"
+    "static/css/main.ea7bcad7.css",
+    "static/js/main.994bad9c.js"
   ]
 }
