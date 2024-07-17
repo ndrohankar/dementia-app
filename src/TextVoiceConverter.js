@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import recordingGif from './test.gif';
+import botIcon from './icons/bot.png';
+import humanIcon from './icons/human.png';
+import background from '../src/icons/background1.png';
     /*<button className="button" onClick={handleSpeak}>Convert Text to Voice</button>*/
  // {text && <button className="button" onClick={handleSpeak}>Listen entered query</button>}
 const TextVoiceConverter = () => {
   const [text, setText] = useState('');
   const [isListening, setIsListening] = useState(false);
   const [speechRecognition, setSpeechRecognition] = useState(null);
+   const [input, setInput] = useState('');
+const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     const SpeechRecognition =
@@ -23,8 +28,8 @@ const TextVoiceConverter = () => {
     }
   }, []);
 
-  const handleSpeak = () => {
-    const utterance = new SpeechSynthesisUtterance(text);
+  const handleSpeak = (inputText) => {
+    const utterance = new SpeechSynthesisUtterance(inputText);
     window.speechSynthesis.speak(utterance);
   };
 
@@ -44,22 +49,53 @@ const TextVoiceConverter = () => {
   const clearText=()=> {
               setText('');
           }
+
+
+  const sendMessage = async () => {
+    const message = text;
+    if (message) {
+      setMessages((prevMessages) => [...prevMessages, { text: message, from: 'You' }]);
+      setText('');
+
+
+        //const response = await axios.post('http://localhost:8080/messages', { message });
+        const response = {data:{reply:'hi test'}};
+
+      setMessages((prevMessages) => [...prevMessages, { text: response.data.reply, from: 'bot' }]);
+      handleSpeak(response.data.reply)
+    }
+  };
  return (
-     <div className="container">
+     <div className="container" >
        <h1 className="title" style={{textAlign:`center`}}>How can I help you?</h1>
-       <div className={`avatar`}></div>
+
+{ messages.length ?(<div style={{ height: '50vh', overflowY: 'scroll', padding: '10px' }}>
+ {messages.map((msg, index) => {
+        console.log('msg is..',msg);
+          return (<div key={index} style={{ margin: '10px 0', textAlign: msg.from === 'You' ? 'right' : 'left' }}>
+
+            {msg.from ==='bot'? (<div className="message bot-message"> <img src={botIcon} alt="Bot" /><p style={{backgroundColor: '#e0e0e0',
+                                                                                                                     padding: '10px',
+                                                                                                                     borderRadius: '5px'}}>{` ${msg.text}`}</p></div>) :(<div className="human-message"><img src={humanIcon} alt="Human" /><p style={{marginRight:'0.5rem',backgroundColor: '#e1e9f9',padding: '10px',borderRadius: '5px'}}>{` ${msg.text}  `}</p></div>)}
+          </div>
+        );
+        })}
+      </div>) :null}
+
 <div class="container-text">
-       <textarea
+       <input
+       type="text"
        id="textArea"
          className="text-area"
-         rows="6"
          value={text}
          onChange={(e) => setText(e.target.value)}
          placeholder="Type your query here..."
        />
-       <button class="clear-btn" onClick={clearText}>Clear</button>
+       <div class="submit-container">
+         <button class="button" onClick={sendMessage}>Submit</button>
+         </div>
        </div>
-         <div> <h5 style={{textAlign:`center`}}>{`OR`}</h5></div>
+
        <div className={isListening? "button-container-listening":"button-container"}>
 
 {isListening && <img src={recordingGif} style={{width:'8%',height:'8%'}}/>}

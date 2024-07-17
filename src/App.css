@@ -7,24 +7,48 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   background-color: rgb(243, 244, 246);
 }
+.message {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
 
+.bot-message img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.human-message {
+  display: flex;
+  align-items: center;
+  flex-direction:row-reverse;
+   margin: 10px 0;
+}
+.human-message img {
+  width: 40px;
+  height: 40px;
+}
+
+.bot-message p, .user-message p {
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 5px;
+}
 .title {
   display: inline-block;
       font-size: 32px;
-      color: #fff;
-      background: #e7572a;
-      padding: 6px 20px 3px;
-      border-radius: 25px;
+      color:#fff;
+      border-radius:8px;
+background:linear-gradient(#2671d8,#1f66ca 98.7%,#1a59b1 98.7%,rgba(0,0,0,0) 99.5%,rgba(0,0,0,0));
+      padding: 0px 0px 3px;
       line-height: 1.2em;
       font-weight: 500;
-      margin-top: 8px;
       margin-bottom: 20px;
-      margin-left: 120px;
-      width:50%
+      width:100%
 }
 
 body{
-    background:#23297a;
 }
 .button-container {
  display: flex;
@@ -38,28 +62,37 @@ body{
      justify-content: center;
 }
 
-textarea {
+input {
             max-width: 600px;
-            width: 560px;
-            height: 130px;
+            width: 80%;
+            height: 64px;
             padding: 10px;
             box-sizing: border-box;
         }
+
 .container-text {
-            position: relative;
-            display: inline-block;
+          display:flex;
+          align-items:center;
         }
         .clear-btn {
-            position: absolute;
-            right: 10px;
-            top: 10px;
-            cursor: pointer;
+
+    padding: 10px 15px;
+     border: none;
+     border-radius: 5px;
+     background-color: #38ac69;
+     color: white;
+     cursor: pointer;
             background: #f44336;
             color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
+
         }
+         .submit-container {
+         margin:24px;
+        gap:8px;
+                   display:flex;
+                   flex-direction:column;
+                   align-items:center;
+                }
 .text-area:focus {
   border-color: #007bff;
   outline: none;
@@ -89,6 +122,13 @@ textarea {
   height: 100px;
   margin: 20px auto;
   background-image: url('../public/avatar.png'); /* Default Avatar Image */
+  background-size: cover;
+  transition: transform 0.3s;
+}
+.chatbot {
+width: 96px;
+  height: 104px;
+  background-image: url('../public/chatbot1.png'); /* Default Avatar Image */
   background-size: cover;
   transition: transform 0.3s;
 }
