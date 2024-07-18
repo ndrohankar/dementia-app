@@ -3,16 +3,14 @@ import "./App.css";
 import recordingGif from "./test.gif";
 import botIcon from "./icons/bot.png";
 import humanIcon from "./icons/human.png";
-import background from "../src/icons/background1.png";
 import AccordionFAQ from "./AccordianFAQ";
-/*<button className="button" onClick={handleSpeak}>Convert Text to Voice</button>*/
-// {text && <button className="button" onClick={handleSpeak}>Listen entered query</button>}
+
 const TextVoiceConverter = () => {
   const [text, setText] = useState("");
   const [isListening, setIsListening] = useState(false);
   const [speechRecognition, setSpeechRecognition] = useState(null);
-  const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
+  const messagesEndRef = useRef(null); // Ref for scrolling to bottom
 
   useEffect(() => {
     const SpeechRecognition =
@@ -34,6 +32,14 @@ const TextVoiceConverter = () => {
     }
   }, []);
 
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]); // Scroll to bottom whenever messages change
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   const handleSpeak = (inputText) => {
     const utterance = new SpeechSynthesisUtterance(inputText);
     window.speechSynthesis.speak(utterance);
@@ -51,9 +57,6 @@ const TextVoiceConverter = () => {
       setIsListening(false);
       speechRecognition.stop();
     }
-  };
-  const clearText = () => {
-    setText("");
   };
 
   const sendMessage = async () => {
@@ -90,47 +93,48 @@ const TextVoiceConverter = () => {
         </h1>
 
         {messages.length ? (
-          <div style={{ overflowY: "scroll", padding: "10px" }}>
-            {messages.map((msg, index) => {
-              console.log("msg is..", msg);
-              return (
-                <div
-                  key={index}
-                  style={{
-                    margin: "10px 0",
-                    textAlign: msg.from === "You" ? "right" : "left",
-                  }}
-                >
-                  {msg.from === "bot" ? (
-                    <div className="message bot-message">
-                      {" "}
-                      <img src={botIcon} alt="Bot" />
-                      <p
-                        style={{
-                          backgroundColor: "#e0e0e0",
-                          padding: "10px",
-                          overflow: "auto",
-                          borderRadius: "5px",
-                        }}
-                      >{` ${msg.text}`}</p>
-                    </div>
-                  ) : (
-                    <div className="human-message">
-                      <img src={humanIcon} alt="Human" />
-                      <p
-                        style={{
-                          marginRight: "0.5rem",
-                          backgroundColor: "#e1e9f9",
-                          padding: "10px",
-                          overflow: "auto",
-                          borderRadius: "5px",
-                        }}
-                      >{` ${msg.text}  `}</p>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+          <div style={{ height: "73%", overflowY: "scroll", padding: "10px" }}>
+            {messages.map((msg, index) => (
+              <div
+                key={index}
+                style={{
+                  margin: "10px 0",
+                  textAlign: msg.from === "You" ? "right" : "left",
+                }}
+              >
+                {msg.from === "bot" ? (
+                  <div className="message bot-message">
+                    <img src={botIcon} alt="Bot" />
+                    <p
+                      style={{
+                        backgroundColor: "#e0e0e0",
+                        padding: "10px",
+                        overflow: "auto",
+                        borderRadius: "5px",
+                      }}
+                    >
+                      {` ${msg.text}`}
+                    </p>
+                  </div>
+                ) : (
+                  <div className="human-message">
+                    <img src={humanIcon} alt="Human" />
+                    <p
+                      style={{
+                        marginRight: "0.5rem",
+                        backgroundColor: "#e1e9f9",
+                        padding: "10px",
+                        overflow: "auto",
+                        borderRadius: "5px",
+                      }}
+                    >
+                      {` ${msg.text} `}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
+            <div ref={messagesEndRef} /> {/* Scroll to bottom ref */}
           </div>
         ) : null}
 
@@ -151,21 +155,17 @@ const TextVoiceConverter = () => {
               Submit
             </button>
           </div>
-          <div
-          className={
-            isListening ? "button-container-listening" : "button-container"
-          }
-        >
-          {isListening && (
-            <img src={recordingGif} style={{ width: "8%", height: "8%" }} />
-          )}
-          <button
-            className="button btn btn-green"
-            onClick={isListening ? handleStopListening : handleListen}
-          >
-            {isListening ? "Stop Recording" : "Start recording your query"}
-          </button>
-        </div>
+          <div className={isListening ? "button-container-listening" : "button-container"}>
+            {isListening && (
+              <img src={recordingGif} style={{ width: "8%", height: "8%" }} />
+            )}
+            <button
+              className="button btn btn-green"
+              onClick={isListening ? handleStopListening : handleListen}
+            >
+              {isListening ? "Stop Recording" : "Start recording your query"}
+            </button>
+          </div>
         </div>
       </div>
       <div className="faq">
