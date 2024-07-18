@@ -222,7 +222,7 @@ footer {
   position: sticky;
   bottom: 0;
   background-color: #95AAB6; /* Adjust the background color as needed */
-  padding: 16px; /* Add padding for spacing */
+  padding: 2px; /* Add padding for spacing */
   text-align: center; /* Center the content within the footer */
 }
   
