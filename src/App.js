@@ -11,15 +11,14 @@ const App = () => {
     </div>
     <footer>
     <div class="footer-container">
-      <div class="footer-icons">
-        <ul>
-          <li><a href="https://www.linkedin.com/in/nltkaczyk/" target="_blank"><i class="glyphicon glyphicon-cloud"></i></a></li>
-          <li><a href="https://www.instagram.com/n.l.tkaczyk/" target="_blank"><i class="glyphicon glyphicon-cloud"></i></a></li>
-          <li><a href="https://www.youtube.com/@n.l.tkaczyk/" target="_blank"><i class="glyphicon glyphicon-cloud"></i></a></li>
-          <li><a href="https://www.youtube.com/@n.l.tkaczyk/" target="_blank"><i class="glyphicon glyphicon-cloud"></i></a></li>
-          <li><a href="https://www.youtube.com/@n.l.tkaczyk/" target="_blank"><i class="glyphicon glyphicon-cloud"></i></a></li>
-      </ul>
-      </div>
+    <div class="footer-icons">
+    <ul>
+        <li><a href="https://www.linkedin.com/in/nltkaczyk/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+        <li><a href="https://www.instagram.com/n.l.tkaczyk/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://www.youtube.com/@n.l.tkaczyk/" target="_blank"><i class="fab fa-youtube"></i></a></li>
+    </ul>
+</div>
+
     </div>
 
   <div class="copyright">
