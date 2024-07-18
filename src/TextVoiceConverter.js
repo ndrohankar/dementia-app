@@ -99,8 +99,8 @@ const TextVoiceConverter = () => {
   return (
     <div className="grid-container">
       <div className="container">
-        <h1 className="title" style={{ textAlign: `center` }}>
-          Cognitive Care
+        <h1 className="title" style={{ textAlign: "center" }}>
+          How can I help you?
         </h1>
 
         {messages.length ? (
@@ -146,47 +146,6 @@ const TextVoiceConverter = () => {
               </div>
             ))}
             <div ref={messagesEndRef} /> {/* Scroll to bottom ref */}
-          <div style={{ height: "73%", overflowY: "scroll", padding: "10px" }}>
-            {messages.map((msg, index) => {
-              console.log("msg is..", msg);
-              return (
-                <div
-                  key={index}
-                  style={{
-                    margin: "10px 0",
-                    textAlign: msg.from === "You" ? "right" : "left",
-                  }}
-                >
-                  {msg.from === "bot" ? (
-                    <div className="message bot-message">
-                      {" "}
-                      <img src={botIcon} alt="Bot" />
-                      <p
-                        style={{
-                          backgroundColor: "#e0e0e0",
-                          padding: "10px",
-                          overflow: "auto",
-                          borderRadius: "5px",
-                        }}
-                      >{` ${msg.text}`}</p>
-                    </div>
-                  ) : (
-                    <div className="human-message">
-                      <img src={humanIcon} alt="Human" />
-                      <p
-                        style={{
-                          marginRight: "0.5rem",
-                          backgroundColor: "#e1e9f9",
-                          padding: "10px",
-                          overflow: "auto",
-                          borderRadius: "5px",
-                        }}
-                      >{` ${msg.text}  `}</p>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
           </div>
         ) : null}
 
