@@ -50,6 +50,7 @@ background:linear-gradient(#2671d8,#1f66ca 98.7%,#1a59b1 98.7%,rgba(0,0,0,0) 99.
 }
 
 body{
+  overflow-y: hidden;
   margin: 0px;
   padding: 0px;
 }
@@ -195,7 +196,7 @@ width: 96px;
 .grid-container {
   display: grid;
   grid-template-columns:2fr 1fr;
-  grid-template-rows: 100vh;
+  grid-template-rows: 90vh;
 }
 
 ::-webkit-scrollbar {

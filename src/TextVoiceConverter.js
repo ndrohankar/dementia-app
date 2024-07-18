@@ -89,7 +89,7 @@ const TextVoiceConverter = () => {
     <div className="grid-container">
       <div className="container">
         <h1 className="title" style={{ textAlign: `center` }}>
-          How can I help you?
+          Cognitive Care
         </h1>
 
         {messages.length ? (
