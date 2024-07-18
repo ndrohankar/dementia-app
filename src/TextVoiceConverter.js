@@ -66,13 +66,24 @@ const TextVoiceConverter = () => {
       setText("");
 
       //const response = await axios.post('http://localhost:8080/messages', { message });
-      const response = { data: { reply: "Hello from db hackathon" } };
-
-      setMessages((prevMessages) => [
-        ...prevMessages,
-        { text: response.data.reply, from: "bot" },
-      ]);
-      handleSpeak(response.data.reply);
+      const requestOptions = {
+        method: 'GET',
+        // contentType: 'text/plain; charset=UTF-8'
+      };
+      fetch(`https://dementia-service-yzg4zastqa-el.a.run.app/dementia/rag?query=${message}`)
+      .then(response => {
+        console.log("kk"+response)
+        return response.text();
+      })
+      .then(r => {
+        console.log("r"+r)
+        const response = { data: { reply: r } };
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { text: response.data.reply, from: "bot" },
+        ]);
+        handleSpeak(response.data.reply);
+      })
     }
   };
 
@@ -90,7 +101,7 @@ const TextVoiceConverter = () => {
         </h1>
 
         {messages.length ? (
-          <div style={{ overflowY: "scroll", padding: "10px" }}>
+          <div style={{ height: "73%", overflowY: "scroll", padding: "10px" }}>
             {messages.map((msg, index) => {
               console.log("msg is..", msg);
               return (
