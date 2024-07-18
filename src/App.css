@@ -67,9 +67,8 @@ body{
 }
 
 input {
-            max-width: 600px;
             width: 80%;
-            height: 64px;
+            /* height: 64px; */
             padding: 10px;
             box-sizing: border-box;
         }
@@ -200,7 +199,7 @@ width: 96px;
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 1px;
 }
 
 /* Track */

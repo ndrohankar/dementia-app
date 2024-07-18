@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import recordingGif from "./test.gif";
 import botIcon from "./icons/bot.png";
@@ -79,6 +79,7 @@ const TextVoiceConverter = () => {
   const handleEnter = (event) => {
     if (event.key === "Enter") {
       sendMessage();
+      handleStopListening();
     }
   };
   return (
@@ -89,7 +90,7 @@ const TextVoiceConverter = () => {
         </h1>
 
         {messages.length ? (
-          <div style={{ height: "50vh", overflowY: "scroll", padding: "10px" }}>
+          <div style={{ overflowY: "scroll", padding: "10px" }}>
             {messages.map((msg, index) => {
               console.log("msg is..", msg);
               return (
@@ -150,9 +151,7 @@ const TextVoiceConverter = () => {
               Submit
             </button>
           </div>
-        </div>
-
-        <div
+          <div
           className={
             isListening ? "button-container-listening" : "button-container"
           }
@@ -166,6 +165,7 @@ const TextVoiceConverter = () => {
           >
             {isListening ? "Stop Recording" : "Start recording your query"}
           </button>
+        </div>
         </div>
       </div>
       <div className="faq">
