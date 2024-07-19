@@ -162,9 +162,7 @@ const TextVoiceConverter = () => {
             placeholder="Type your query here..."
           />
           <div class="submit-container">
-            <button class="button" onClick={sendMessage}>
-              Submit
-            </button>
+          <button class="button" onClick={sendMessage}><i class="fa fa-paper-plane"></i></button>
           </div>
           <div className={isListening ? "button-container-listening" : "button-container"}>
             {isListening && (
@@ -178,9 +176,6 @@ const TextVoiceConverter = () => {
             </button>
           </div>
         </div>
-      </div>
-      <div className="faq">
-            <AccordionFAQ />
       </div>
     </div>
   );
